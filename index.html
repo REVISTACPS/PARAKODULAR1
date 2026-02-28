@@ -809,6 +809,36 @@
         width: 180px;
     }
 }
+
+/* ===== PARCHE PARA KODULAR WEBVIEW ===== */
+@media (max-width: 480px) {
+    /* TOP BAR */
+    .top-bar {
+        width: 100% !important;
+        left: 0 !important;
+        padding: 0 10px !important; /* reduce padding en móviles */
+        box-sizing: border-box;
+    }
+
+    /* TAGS */
+    .tags-container {
+        width: 100% !important;
+        left: 0 !important;
+        padding: 8px !important;   /* padding más compacto */
+        gap: 5px !important;       /* reduce separación entre etiquetas */
+        box-sizing: border-box;
+    }
+
+    /* GOLDEN BANNER */
+    .golden-banner {
+        width: 90% !important;
+        max-width: 400px !important; /* no excede ancho de pantalla */
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        padding: 8px 12px !important;
+        box-sizing: border-box;
+    }
+}
     </style>
 </head>
 
