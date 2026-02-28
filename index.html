@@ -809,6 +809,28 @@
         width: 180px;
     }
 }
+
+/* ===== PARCHE MÓVIL: evitar scroll lateral ===== */
+@media (max-width: 480px) {
+    html, body {
+        overflow-x: hidden; /* bloquea scroll lateral */
+    }
+
+    .cosmic-card,
+    .revista-section,
+    .carousel-container,
+    .carousel-track,
+    .melodia-card,
+    .video-wrapper iframe {
+        max-width: 100%;    /* que no se salga de la pantalla */
+        box-sizing: border-box;
+    }
+
+    .carousel-track {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
     </style>
 </head>
 
