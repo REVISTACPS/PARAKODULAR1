@@ -890,6 +890,25 @@ document.addEventListener("DOMContentLoaded", () => {
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(0,255,0,0.7);
 }
+.sidebar-tag {
+    background: #eaeaea;       /* color similar al tag superior */
+    color: #222;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 20px;
+    margin: 8px 0;             /* espacio entre items */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.25s ease;
+}
+
+.sidebar-tag:hover {
+    background: #6a00ff;       /* mismo hover que arriba */
+    color: white;
+    transform: translateX(3px);
+    box-shadow: 0 4px 15px rgba(106,0,255,0.3);
+}
 
 
     </style>
@@ -1148,6 +1167,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 <i class="fas fa-chalkboard-teacher"></i><span>Temas</span>
             </a>
 
+            <a href="https://revistacps.github.io/motordistribucionjuegos1/" class="tag sidebar-tag">
+                <i class="fas fa-gamepad"></i> Juegos
+            </a>
+
             <a href="https://revistacps.github.io/LABORATORIODETRADUCION2/" class="side-item">
                 <i class="fas fa-book"></i><span>Traducciones</span>
             </a>
@@ -1295,6 +1318,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
         </script>
 </body>
 
