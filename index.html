@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Premium+</title>
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS UNIFICADO -->
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* BODY Y MODO OSCURO */
+        body {
+            background: #f4f4f4;
+            color: #222;
+            transition: 0.3s;
+        }
+
+        .dark {
+            background: #121212;
+            color: white;
+        }
+
+        .libra-text {
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-right: auto;
+            /* empuja el botón a la derecha */
+
+            /* Degradado dorado tipo oro real */
+            background: linear-gradient(90deg, #fff6d5, #f7c948, #b8860b, #5c3b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            /* Glow sutil */
+            text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: #ff5f00;
+
+            display: flex;
+            justify-content: space-between;
+            /* separa elementos */
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            z-index: 1000;
+        }
+
+        .spacer {
+            width: 60px;
+            /* mismo ancho que el botón */
+        }
+
+        .libra-text {
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 2px;
+
+            /* Degradado dorado tipo oro real */
+            background: linear-gradient(90deg, #fff6d5, #f7c948, #b8860b, #5c3b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            /* Glow sutil */
+            text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+
+            text-align: center;
+        }
+
+        .top-bar button {
+            width: 60px;
+            /* igual que el spacer */
+            height: 100%;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* TAGS */
+        .tags-container {
+            position: fixed;
+            top: 60px;
+            width: 100%;
+            background: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            z-index: 999;
+        }
+
+        .tag {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            background: #eaeaea;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            background: #6a00ff;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(106, 0, 255, 0.4);
+        }
+
+        .tag:active {
+            transform: scale(0.95);
+        }
+
+        .dark .tags-container {
+            background: #1e1e1e;
+            border-bottom: 1px solid #333;
+        }
+
+        .dark .tag {
+            background: #333;
+            color: white;
+        }
+
+/* ===== COSMIC CARD ===== */
+.cosmic-card {
+    display: flex;
+    align-items: center;       /* centra verticalmente imagen y texto */
+    gap: 15px;                 /* espacio entre imagen y texto */
+    background: linear-gradient(145deg, #0f1c3f, #162a63, #0b1230);
+    border-radius: 20px;
+    padding: 25px 20px;        /* padding compacto */
+    margin: 130px auto 40px auto; /* margen superior suficiente para top-bar y tags */
+    max-width: 500px;          /* contenedor más pequeño */
+    box-shadow: 0 0 30px rgba(0, 140, 255, 0.4);
+    position: relative;
+    overflow: visible;
+}
+
+/* IMAGEN DEL CABALLERO - ESTÁTICO CON GLOW */
+.cosmic-knight {
+    width: 160px;               /* tamaño más adecuado */
+    margin-bottom: 0;
+    border-radius: 12px;        /* opcional, suaviza bordes */
+    box-shadow: 0 0 20px rgba(0, 140, 255, 0.6); /* glow azul */
+    /* ANIMACIÓN ELIMINADA */
+}
+
+/* HALO ESTÁTICO DETRÁS DE LA TARJETA */
+.cosmic-card::before {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    top: -100%;
+    left: -100%;
+    background: radial-gradient(circle, rgba(0, 170, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    /* ANIMACIÓN ELIMINADA */
+}
+
+/* TEXTO */
+.cosmic-text h2 {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    font-size: 28px;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    background: linear-gradient(90deg, #b87333, #ffd700); /* amarillo-cobre */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 8px rgba(184, 115, 51, 0.6), 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.cosmic-text p {
+    color: white;              /* párrafo en blanco */
+    font-size: 15px;           /* tamaño del párrafo */
+    line-height: 1.5;
+}
+
+/* ===== RESPONSIVE MÓVILES ===== */
+@media (max-width: 480px) {
+    .cosmic-card {
+        flex-direction: column;   /* apilar imagen y texto */
+        align-items: center;      /* centrar horizontalmente */
+        padding: 20px 15px;
+        width: 90%;               /* que no se salga de pantalla */
+        margin: 150px auto 40px auto; /* margen superior extra para top-bar y tags */
+        gap: 10px;                /* menos espacio entre imagen y texto */
+    }
+
+    .cosmic-knight {
+        width: 120px;             /* imagen más pequeña */
+        margin-bottom: 15px;
+    }
+
+    .cosmic-text h2 {
+        font-size: 16px;          /* título más pequeño */
+        text-align: center;       /* centrar texto */
+    }
+
+    .cosmic-text p {
+        font-size: 12px;          /* párrafo más pequeño */
+        text-align: center;       /* centrar texto */
+    }
+}
+
+
+        /* CLASSES */
+        .class-box {
+            display: block;
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .class-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.25);
+        }
+
+        .class-box:active {
+            transform: scale(0.95);
+        }
+
+        .dark .class-box {
+            background: #1e1e1e;
+            color: white;
+        }
+
+        /* NOTICE */
+        .notice {
+            background: #ffcc00;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #222;
+        }
+
+
+        /* BOTTOM NAV */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid #ddd;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 10px;
+            transition: all 0.25s ease;
+            padding: 6px 10px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .nav-item i {
+            font-size: 18px;
+            margin-bottom: 3px;
+            color: #ff9900;
+            transition: all 0.25s ease;
+        }
+
+        .nav-item span {
+            color: #007bff;
+        }
+
+        .nav-item:hover {
+            transform: translateY(-4px);
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        .nav-item:hover i {
+            transform: scale(1.2);
+        }
+
+        .nav-item:active {
+            transform: scale(0.92);
+        }
+
+        .dark .bottom-nav {
+            background: #1a1a1a;
+            border-top: 1px solid #333;
+        }
+
+        .dark .nav-item i,
+        .dark .nav-item span {
+            color: white;
+        }
+
+        /* BOTÓN LESSON */
+        .lesson-button {
+            display: block;
+            width: 80%;
+            max-width: 500px;
+            margin: 10px auto 0 auto;
+            padding: 12px 25px;
+            background: #39ff14;
+            color: #000;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 255, 20, 0.4);
+            cursor: pointer;
+        }
+
+        .lesson-button:hover {
+            background: #9b00ff;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(155, 0, 255, 0.6);
+        }
+
+        .lesson-button:active {
+            background: #6a00cc;
+            transform: scale(0.95);
+            box-shadow: 0 4px 10px rgba(155, 0, 255, 0.5);
+        }
+
+        /* ===== SECCIÓN MELODIAS ===== */
+        .melodias-section {
+            margin-top: 40px;
+            padding: 20px 0;
+        }
+
+        .melodias-title {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .carousel-container {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 10px;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .melodia-card {
+            min-width: 300px;
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .melodia-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dark .melodia-card {
+            background: #1e1e1e;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .melodia-button {
+            display: block;
+            margin: 12px auto 0 auto;
+            padding: 10px;
+            text-align: center;
+            background: #39ff14;
+            color: #000;
+            font-weight: bold;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .melodia-button:hover {
+            background: #9b00ff;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* NEUROLEARNING CARD */
+        #neurolearningCard {
+            background: linear-gradient(135deg, #ff8a00, #e52e71);
+            color: white;
+            text-align: center;
+            padding: 18px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        #neurolearningCard h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        #neurolearningCard p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .neuro-button {
+            background: #fff;
+            color: #e52e71;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 12px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .neuro-button:hover {
+            background: #e52e71;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ===== SECCIÓN REVISTA DESTACADA ===== */
+        .revista-section {
+            margin: 40px 0;
+            padding: 30px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #001f3f, #004aad);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: 0.3s ease;
+        }
+
+        .revista-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .revista-img {
+            flex: 1;
+        }
+
+        .revista-img img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .revista-content {
+            flex: 1;
+        }
+
+        .revista-content h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .revista-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .revista-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #39ff14;
+            color: #000;
+            font-weight: bold;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 255, 20, 0.4);
+        }
+
+        .revista-button:hover {
+            background: #9b00ff;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            .cosmic-card {
+                flex-direction: column;
+                /* apila imagen y texto verticalmente */
+                align-items: center;
+                /* centra todo horizontalmente */
+                padding: 20px 15px;
+                /* padding más compacto */
+                max-width: 90%;
+                /* que no se salga de la pantalla */
+                margin: 40px auto;
+                /* centrado con margen superior e inferior */
+            }
+
+            .cosmic-knight {
+                width: 120px;
+                /* imagen más pequeña para móviles */
+                margin-bottom: 15px;
+                /* separa imagen del texto */
+            }
+
+            .cosmic-text {
+                padding-right: 0;
+                /* elimina padding extra en móviles */
+                text-align: center;
+                /* centra el texto horizontalmente */
+            }
+
+            .cosmic-text h2 {
+                font-size: 16px;
+                /* título más pequeño */
+            }
+
+            .cosmic-text p {
+                font-size: 12px;
+                /* párrafo más pequeño */
+            }
+        }
+
+        /* SIDEBAR LATERAL */
+        .sidebar {
+            position: fixed;
+            left: -200px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            background: linear-gradient(180deg, #ff5f00, #9b00ff);
+            padding: 20px 10px;
+            border-radius: 0 20px 20px 0;
+            box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.3);
+            transition: 0.4s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            right: -35px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ff5f00;
+            width: 35px;
+            height: 60px;
+            border-radius: 0 10px 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .toggle-btn i {
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .side-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 12px;
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .side-item i {
+            font-size: 18px;
+        }
+
+        .side-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        /* DARK MODE */
+        .dark .sidebar {
+            background: linear-gradient(180deg, #1a1a1a, #333);
+        }
+
+        .dark .toggle-btn {
+            background: #1a1a1a;
+        }
+
+        /* ===== PORTAL NEUROELITE ===== */
+
+        /* OVERLAY OSCURO */
+        #premiumOverlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(106, 0, 255, 0.3), rgba(0, 0, 0, 0.85));
+            backdrop-filter: blur(6px);
+            z-index: 1999;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* CONTENEDOR PORTAL */
+        #premiumContainer {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            width: 90%;
+            max-width: 600px;
+            padding: 35px;
+            background: radial-gradient(circle, #8c3fff, #3a0088);
+            color: white;
+            text-align: center;
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(155, 0, 255, 0.8),
+                0 0 80px rgba(106, 0, 255, 0.6),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+            z-index: 2000;
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        /* PORTAL ACTIVO */
+        #premiumContainer.active {
+            border-radius: 20px;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        /* ANIMACIÓN */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        /* BANNER DORADO SUPERIOR */
+.golden-banner {
+    position: fixed;
+    top: 60px; /* justo debajo de la top-bar */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 25px;
+    background: linear-gradient(90deg, #fff6d5, #ffd700, #ffcc33, #b8860b);
+    border-radius: 25px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    z-index: 1100;
+    text-align: center;
+    pointer-events: none; /* no bloquea clicks en videos */
+    animation: glowBanner 2s ease-in-out infinite alternate;
+}
+
+.golden-banner span {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    color: #fff8dc;
+    text-shadow: 0 0 8px rgba(255, 223, 0, 0.8), 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* ANIMACIÓN SUTIL DE BRILLO */
+@keyframes glowBanner {
+    0% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.7); }
+    50% { box-shadow: 0 0 25px rgba(255, 223, 0, 0.9); }
+    100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.7); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .golden-banner {
+        padding: 8px 15px;
+    }
+    .golden-banner span {
+        font-size: 14px;
+    }
+}
+
+        #neurolearningCard {
+            box-shadow: 0 0 25px rgba(106, 0, 255, 0.4);
+            transition: 0.3s ease;
+        }
+
+        #neurolearningCard:hover {
+            transform: scale(1.02);
+        }
+
+        body {
+            overflow-x: hidden; /* evita que el swipe a la izquierda muestre contenido oculto */
+        }
+
+        /* ===== PARCHE MÓVIL: evitar scroll lateral ===== */
+@media (max-width: 480px) {
+    /* Cosmic card */
+    .cosmic-card {
+        max-width: 95%;       /* que no se salga del viewport */
+    }
+
+    .cosmic-card::before {
+        width: 200%;          /* halo más pequeño */
+        height: 200%;
+        top: -50%;
+        left: -50%;
+    }
+
+    /* Revista destacada */
+    .revista-section {
+        flex-direction: column;  /* apila imagen y texto */
+        gap: 15px;
+        padding: 15px;           /* menos padding */
+        max-width: 95%;
+        margin: 0 auto;           /* centrado */
+    }
+
+    .revista-img img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Carousel Melodías */
+    .carousel-track {
+        gap: 10px;               /* menos espacio entre cards */
+        padding: 0 10px;
+    }
+
+    .melodia-card {
+        min-width: 80%;           /* que no desborde */
+    }
+
+    /* Sidebar lateral (por si algo lo activa) */
+    .sidebar {
+        left: -180px;             /* menos ancho para móviles */
+        width: 180px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+
+    <div class="top-bar">
+        <div class="spacer"></div>
+        <span class="libra-text">⚖ L I B R A</span>
+        <button onclick="toggleDarkMode()">
+        <i class="fas fa-moon"></i>
+    </button>
+    </div>
+
+    <!-- TAGS -->
+    <div class="tags-container">
+        <a href="https://revistacps.github.io/motordistribucionvideos1/" class="tag">
+            <i class="fas fa-laptop"></i> Clases Online
+        </a>
+        <a href="https://revistacps.github.io/-Avisos-Importantes/" class="tag">
+            <i class="fas fa-bell"></i> Avisos
+        </a>
+        <a href="https://revistacps.github.io/motordistribucionjuegos1/" class="tag">
+            <i class="fas fa-gamepad"></i> Juegos
+        </a>
+    </div>
+     
+
+     
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+    <!-- CONTENEDOR MÍSTICO SOBRE VIDEO 1 -->
+<div class="cosmic-card" style="margin-top: 0; max-width: 600px; margin-left: auto; margin-right: auto; text-align: center; padding: 20px;">
+    <div class="cosmic-text">
+        <h2 class="cosmic-title">🌟 BRILLA 🌟</h2>
+        <p>
+            -----------------------------------------<br>
+            🌟 “La magia del conocimiento empieza contigo” 🔮
+        </p>
+    </div>
+</div>
+               
+        <!-- CLASE 1 / VIDEO -->
+        <div class="class-box">
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+                <iframe
+                    src="https://www.youtube.com/embed/vi8C6Gpa1Ho?autoplay=1&mute=1&controls=0&loop=1&playlist=vi8C6Gpa1Ho"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                    allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+            </div>
+            <h3 style="text-align:center; margin-top:10px;">Clase 1</h3>
+            <a href="https://revistacps.github.io/Video-megan-1/" class="lesson-button">
+                Aprende una frase diaria con Megan
+            </a>
+        </div>
+
+        <!-- CLASE 2 / VIDEO -->
+        <div class="class-box">
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+                <iframe
+                    src="https://www.youtube.com/embed/GisjPwsvnAk?autoplay=1&mute=1&controls=0&loop=1&playlist=GisjPwsvnAk"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                    allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+            </div>
+            <h3 style="text-align:center; margin-top:10px;">Clase 2</h3>
+            <a href="https://revistacps.github.io/Video-Jack-Sparrow-1/" class="lesson-button">
+                Aprende una frase diaria con Jack Sparrow...
+            </a>
+        </div>
+
+        <!-- CLASE 3 / VIDEO -->
+        <div class="class-box">
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+                <iframe
+                    src="https://www.youtube.com/embed/GisjPwsvnAk?autoplay=1&mute=1&controls=0&loop=1&playlist=Nyw02xZFEH0"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                    allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+            </div>
+            <h3 style="text-align:center; margin-top:10px;">Clase 3</h3>
+            <a href="https://revistacps.github.io/Kunfupanda1/" class="lesson-button">
+                Aprende una frase diaria con Kung Fu Panda...
+            </a>
+        </div>
+
+        <!-- CLASE 4 / VIDEO -->
+        <div class="class-box">
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+                <iframe
+                    src="https://www.youtube.com/embed/GisjPwsvnAk?autoplay=1&mute=1&controls=0&loop=1&playlist=44w4FREZSwg"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                    allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+            </div>
+            <h3 style="text-align:center; margin-top:10px;">Clase 4</h3>
+            <a href="https://revistacps.github.io/Eradehielo1/" class="lesson-button">
+                Aprende una frase diaria con La Era De Hielo...
+            </a>
+        </div>
+
+        <!-- ===== MELODIAS / CARRUSEL ===== -->
+        <div class="melodias-section">
+
+            <h2 class="melodias-title">MELODÍAS</h2>
+
+            <div class="carousel-container">
+                <div class="carousel-track">
+
+                    <!-- ITEM 1 -->
+                    <div class="melodia-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/LDkRy6ISqrA" allowfullscreen></iframe>
+                        </div>
+                        <a href="https://revistacps.github.io/Melodia-Titanium/" class="melodia-button">
+                            Ver Melodía
+                        </a>
+                    </div>
+
+                    <!-- ITEM 2 -->
+                    <div class="melodia-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe>
+                        </div>
+                        <a href="https://revistacps.github.io/Melodia-Titanium/" class="melodia-button">
+                            Escuchar Ahora
+                        </a>
+                    </div>
+
+                    <!-- ITEM 3 -->
+                    <div class="melodia-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/OPf0YbXqDm0" allowfullscreen></iframe>
+                        </div>
+                        <a href="https://revistacps.github.io/Melodia-Titanium/" class="melodia-button">
+                            Ir a la Letra
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CLASE 5 / VIDEO -->
+        <div class="class-box">
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+                <iframe
+                    src="https://www.youtube.com/embed/GisjPwsvnAk?autoplay=1&mute=1&controls=0&loop=1&playlist=EATFzQIzHVQ"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                    allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+            </div>
+            <h3 style="text-align:center; margin-top:10px;">Clase 5</h3>
+            <a href="https://revistacps.github.io/Acat1/" class="lesson-button">
+                Aprende una frase diaria con A Cat...
+            </a>
+        </div>
+
+        <!-- CLASE 6 / VIDEO -->
+        <div class="class-box">
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+                <iframe
+                    src="https://www.youtube.com/embed/GisjPwsvnAk?autoplay=1&mute=1&controls=0&loop=1&playlist=qF_KQliAjx0"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                    allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+            </div>
+            <h3 style="text-align:center; margin-top:10px;">Clase 6</h3>
+            <a href=class="lesson-button">
+                Si quieres mas videos como este, dirigete al area de "VIDEO"...
+            </a>
+        </div>
+
+        <!-- NUEVO CONTENEDOR EMOCIONANTE -->
+        <div class="card" id="neurolearningCard">
+            <h2>🚀 El Nivel Superior Te Está Observando</h2>
+            <p>
+                Cada evaluación es más que un examen.
+                Es el momento donde descubres si estás listo
+                para avanzar al siguiente escalón.
+            </p>
+            <a href="https://revistacps.github.io/Desbloqueatunivel1.1/" class="neuro-button">
+                ⚡ Activar Evaluación
+            </a>
+        </div>
+
+        <div class="cosmic-card">
+            <img src="https://i.ibb.co/tMqrkKH5/Chat-GPT-Image-27-feb-2026-11-27-22-a-m.png"
+         alt="Guardián del Nivel"
+         class="cosmic-knight">
+
+            <div class="cosmic-text">
+        <h2 class="cosmic-title">🛡️ Liga Cobre: Libra</h2>
+        <p>
+                ⚔️ Cada lección es un campo de batalla.<br>
+                🛡️ Cada práctica fortalece tu armadura.<br>
+                🔥 Hoy portas el Cobre… mañana conquistarás Bronce… luego Plata…<br>
+                🏆 Solo los que luchan sin rendirse alcanzan el Oro.<br>
+                💎 El Diamante Cósmico no se regala… se gana con valor.
+            </p>
+    </div>
+        </div>
+
+        
+
+        <!-- ===== SECCIÓN REVISTA DESTACADA ===== -->
+        <div class="revista-section">
+
+            <div class="revista-img">
+                <img src="https://i.ibb.co/nN9tn9FR/SPEAK-LOCAL-MARZO-2025.png"
+             alt="Portada Revista Speak Local Marzo 2025"
+             loading="lazy">
+            </div>
+
+            <div class="revista-content">
+                <h2>📰 SPEAK LOCAL Magazine</h2>
+                <p>
+                    No te pierdas nuestra revista mensual de inmersión en inglés.
+                    Descubre cultura, nuevas expresiones y artículos exclusivos
+                    diseñados para mantener tu inglés activo.
+                </p>
+
+                <a href="https://revistacps.github.io/Edicion-Especial-Ed.-001/" class="revista-button">
+                    📖 Ir a la Revista
+                </a>
+            </div>
+
+        </div>
+
+        <!-- AVISO -->
+        <div class="notice">
+            Aviso importante: Revisa constantemente las nuevas actualizaciones del sistema.
+        </div>
+
+
+        <!-- SIDEBAR LATERAL -->
+        <div class="sidebar" id="sidebar">
+
+            <div class="toggle-btn" onclick="toggleSidebar()">
+                <i class="fas fa-chevron-right" id="arrowIcon"></i>
+            </div>
+
+            <a href="https://revistacps.github.io/MotorVideosPremium/" class="side-item">
+                <i class="fas fa-video"></i><span>Videos </span>
+            </a>
+
+            <a href="https://revistacps.github.io/MotordetemasA1/" class="side-item">
+                <i class="fas fa-chalkboard-teacher"></i><span>Temas</span>
+            </a>
+
+            <a href="https://revistacps.github.io/LABORATORIODETRADUCION2/" class="side-item">
+                <i class="fas fa-book"></i><span>Traducciones</span>
+            </a>
+
+            <a href="https://revistacps.github.io/-Avisos-Importantes/" class="side-item">
+                <i class="fas fa-bell"></i><span>Avisos</span>
+            </a>
+
+            <a href="javascript:void(0)" class="side-item" onclick="activarPremium()">
+                <i class="fas fa-crown"></i><span>Ingresar al Portal</span> </a>
+
+        </div>
+
+
+        <!-- CONTENEDOR AZUL-MORADO -->
+
+        <div id="premiumOverlay"></div>
+
+        <div id="premiumContainer">
+
+            <!-- BOTONES DE VIDEOS PREMIUM -->
+            <h2>🌌 Portal NeuroElite</h2>
+
+            <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.95;">
+                Ser parte de los <strong>NeuroElites</strong> no es solo acceder a contenido…
+                es entrar a un espacio diseñado para mentes que buscan ir más allá.
+            </p>
+
+            <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.9;">
+                Con una sola clave de acceso, se desbloquean
+                videos exclusivos, melodías estratégicas,
+                clases especiales, traducciones guiadas
+                y textos que expanden tu comprensión.
+            </p>
+
+            <p style="margin-top:18px; font-size:15px; line-height:1.6; opacity:0.85;">
+                No todos llegan aquí por casualidad.
+                Algunos simplemente están listos para el siguiente nivel.
+            </p>
+
+            <button onclick="cerrarPremium()" style="
+    margin-top:25px;
+    padding:10px 22px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    background:white;
+    color:#6a00ff;
+    font-weight:bold;
+">
+    Cerrar
+</button>
+        </div>
+
+
+
+        <!-- JS externo -->
+        <script src="script.js"></script>
+
+        <!-- JS UNIFICADO -->
+        <script>
+            /* DARK MODE */
+function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+}
+
+/* COUNTDOWN PERSISTENTE */
+const DURACION = 24 * 60 * 60 * 1000; // 24 horas en ms
+let countDownDate = localStorage.getItem("countDownDate");
+
+if (!countDownDate) {
+    countDownDate = Date.now() + DURACION;
+    localStorage.setItem("countDownDate", countDownDate);
+} else {
+    countDownDate = parseInt(countDownDate);
+}
+
+let countdownElement = document.getElementById("countdown");
+let countdownContainer = document.getElementById("timer-container");
+
+let intervalo = setInterval(function () {
+    let now = Date.now();
+    let distance = countDownDate - now;
+
+    if (distance <= 0) {
+        clearInterval(intervalo);
+        localStorage.removeItem("countDownDate");
+        countdownContainer.style.display = "none";
+        return;
+    }
+
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownElement.innerHTML = hours + "h " + minutes + "m " + seconds + "s";
+}, 1000);
+
+function toggleSidebar() {
+    let sidebar = document.getElementById("sidebar");
+    let arrow = document.getElementById("arrowIcon");
+
+    sidebar.classList.toggle("active");
+
+    if (sidebar.classList.contains("active")) {
+        arrow.classList.remove("fa-chevron-right");
+        arrow.classList.add("fa-chevron-left");
+    } else {
+        arrow.classList.remove("fa-chevron-left");
+        arrow.classList.add("fa-chevron-right");
+    }
+}
+
+function activarPremium() {
+    const overlay = document.getElementById('premiumOverlay');
+    const container = document.getElementById('premiumContainer');
+
+    overlay.style.display = 'block';
+    container.style.display = 'block';
+
+    // Pequeño delay para activar animación
+    setTimeout(() => {
+        container.classList.add('active');
+    }, 50);
+}
+
+function cerrarPremium() {
+    const overlay = document.getElementById('premiumOverlay');
+    const container = document.getElementById('premiumContainer');
+
+    container.classList.remove('active');
+
+    setTimeout(() => {
+        overlay.style.display = 'none';
+        container.style.display = 'none';
+    }, 600);
+}
+        </script>
+</body>
+
+</html>
