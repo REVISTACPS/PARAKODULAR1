@@ -854,6 +854,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+        document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("activarEvaluacionBtn");
+
+    if (btn) {
+        btn.addEventListener("click", function(e) {
+            e.stopPropagation();      // detiene que otros handlers interfieran
+            e.preventDefault();       // evita comportamiento por defecto
+            btn.style.pointerEvents = "none"; // ignora cualquier overlay temporalmente
+
+            const url = btn.getAttribute("href");
+
+            // Forzamos la redirección en el próximo ciclo de eventos
+            setTimeout(() => {
+                window.location.assign(url); // más confiable que href o window.location.href
+            }, 50);
+        });
+    }
+});
+
 
     </style>
 </head>
