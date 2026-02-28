@@ -840,9 +840,21 @@
     }
 }
 
-<a href="https://revistacps.github.io/Desbloqueatunivel1.1/" class="neuro-button">
-    ⚡ Activar Evaluación
-</a>
+// Parche fuerte para el botón Activar Evaluación
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("activarEvaluacionBtn");
+
+    if (btn) {
+        btn.addEventListener("click", function(e) {
+            e.preventDefault(); // evita comportamientos extraños
+            const url = btn.getAttribute("href");
+            // Fuerza abrir la URL
+            window.location.href = url;
+        });
+    }
+});
+
+
     </style>
 </head>
 
@@ -1028,9 +1040,9 @@
                 Es el momento donde descubres si estás listo
                 para avanzar al siguiente escalón.
             </p>
-            <a href="https://revistacps.github.io/Desbloqueatunivel1.1/" class="neuro-button">
-                ⚡ Activar Evaluación
-            </a>
+            <a id="activarEvaluacionBtn" href="https://revistacps.github.io/Desbloqueatunivel1.1/" class="neuro-button">
+                    ⚡ Activar Evaluación
+                </a>
         </div>
 
         <div class="cosmic-card">
