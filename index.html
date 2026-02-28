@@ -831,6 +831,14 @@
         padding-right: 0;
     }
 }
+
+/* PARCHE MÓVIL: asegurar que los enlaces se puedan clicar */
+@media (max-width: 480px) {
+    a, .lesson-button, .melodia-button, .revista-button {
+        position: relative;
+        z-index: 2100; /* más alto que overlays menores */
+    }
+}
     </style>
 </head>
 
