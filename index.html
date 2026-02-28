@@ -873,6 +873,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+.boton-evaluacion-sidebar {
+    background: linear-gradient(45deg, #39ff14, #00ffcc);
+    color: #000;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 12px;
+    margin-top: 15px;   /* espacio con el item de arriba */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.boton-evaluacion-sidebar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,255,0,0.7);
+}
+
 
     </style>
 </head>
@@ -1122,6 +1140,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 <i class="fas fa-video"></i><span>Videos </span>
             </a>
 
+            <a href="https://revistacps.github.io/Desbloqueatunivel1.1/" class="side-item boton-evaluacion-sidebar">
+                <i class="fas fa-bolt"></i><span>Activar Evaluación</span>
+            </a>
+
             <a href="https://revistacps.github.io/MotordetemasA1/" class="side-item">
                 <i class="fas fa-chalkboard-teacher"></i><span>Temas</span>
             </a>
@@ -1263,6 +1285,16 @@ function cerrarPremium() {
         container.style.display = 'none';
     }, 600);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const botonSidebar = document.querySelector(".boton-evaluacion-sidebar");
+    if (botonSidebar) {
+        botonSidebar.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = botonSidebar.href;
+        });
+    }
+});
         </script>
 </body>
 
