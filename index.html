@@ -111,9 +111,9 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 13px;
+            padding: 1px 4px;  /* menos espacio dentro de cada etiqueta */
+           border-radius: 16px; /* esquinas menos grandes si quieres */
+            font-size: 11px;    /* texto más pequeño */
             background: #eaeaea;
             transition: all 0.25s ease;
             position: relative;
@@ -142,23 +142,32 @@
             color: white;
         }
 
-        /* ===== AJUSTES PARA MÓVIL - ETIQUETAS ===== */
-        @media (max-width: 480px) {
-            .tags-container {
-                gap: 8px;        /* menos separación entre etiquetas */
-                padding: 5px;    /* menos espacio arriba y abajo */
-            }
+        
+/* ================== ETIQUETAS LINEALES EN CELULAR ================== */
 
-            .tag {
-                padding: 6px 10px; /* más compacto */
-                font-size: 11px;   /* texto más pequeño */
-                border-radius: 16px;
-            }
+@media (max-width: 480px) {
+  .tags-container {
+    display: flex;             /* Flexbox */
+    flex-wrap: nowrap !important; /* Forzar que no se rompa */
+    overflow-x: auto;          /* Scroll horizontal si no caben */
+    -webkit-overflow-scrolling: touch; /* Suaviza scroll en iOS */
+    gap: 10px;                 /* Separación entre etiquetas */
+    padding: 8px 10px;         /* Ajusta espacio interno */
+  }
 
-            .tag i {
-                font-size: 12px;   /* iconos más pequeños */
-            }
-        }
+  .tag {
+    flex: 0 0 auto;            /* Mantener tamaño de etiqueta */
+    white-space: nowrap;       /* Evitar que el texto se rompa */
+    padding: 6px 12px;         /* Más compacto */
+    font-size: 12px;           /* Tamaño más pequeño */
+    border-radius: 16px;       /* Opcional: redondeo más pequeño */
+  }
+
+  /* Ocultar scrollbar opcional */
+  .tags-container::-webkit-scrollbar {
+    display: none;
+  }
+}
 
         /* ================================== */
         /* ===== SECCIÓN TITULO DE LA CARD ======== */
@@ -1435,46 +1444,6 @@ body.dark .liga-button {
             text-shadow: 0 0 8px rgba(255,255,255,0.8);
         }
 
-
-        /* ========================================= */
-        /* =====BOTON DE NAVEGACION - HACIA ARRIBA ======== */
-        /* ======================================== */
-#backToTop {
-    background-color: blue; /* Cambia el color del círculo */
-    color: white;           /* Color de la flecha */
-    border: none;
-    border-radius: 50%;     /* Hace que sea circular */
-    width: 50px;            /* Ajusta tamaño si quieres */
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Sombra opcional */
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;          /* Asegura que esté arriba de todo */
-}
-
-#backToTop:hover {
-    transform: translateX(-50%) translateY(-4px) scale(1.1);
-    box-shadow: 0 10px 30px rgba(123, 44, 255, 0.9);
-}
-
-/* Ajustes móviles */
-@media (max-width: 480px) {
-    #backToTop {
-        bottom: 65px;  /* margen más pequeño en móviles */
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-    }
-}
-
-         /* ================================== */
-        /* =====FINAL DEL BOTON DE NAVEGACION - HACIA ARRIBA ======== */
-        /* ================================== */
     </style>
 </head>
 
@@ -1521,7 +1490,7 @@ body.dark .liga-button {
                 <h2 class="cosmic-title">🌟 BRILLA 🌟</h2>
                 <p>
                     -----------------------------------------<br>
-                    🌟 “La magia del conocimiento empieza contigo” 🔮
+                    🌟 “Estas en el portal de los caballeros cosmicos” 🔮
                 </p>
             </div>
         </div>
@@ -1654,10 +1623,8 @@ body.dark .liga-button {
                 </iframe>
             </div>
             <h3 style="text-align:center; margin-top:10px;">Clase 6</h3>
-           <a href="#" class="lesson-button">
-                Si quieres mas videos como este, dirigete al area de "VIDEO"...
-            </a>
-        </div>
+                            <p>Si quieres mas videos como este, dirigete al area de "VIDEOS"  en la pestaña luminosa... </p>
+                </div>
 
         <!-- CONTENEDOR LIGA-COBRE -->
 <div class="liga-container">
@@ -1667,8 +1634,8 @@ body.dark .liga-button {
         <span>🎵</span>
     </div>
     <h2>LIGA-COBRE</h2>
-    <p>¡Casi llegas a la liga-bronce! Cada modulo cuenta para subir tu poder cosmico. 💪✨</p>
-    <button class="liga-button">Subir puntos 🡅</button>
+    <p>“Despierta al Caballero que llevas dentro: ¡Tu Bronce te espera!”</p>
+    <button class="liga-button">✨"Sube tu poder"✨</button>
 </div>
 
         
@@ -1680,7 +1647,7 @@ body.dark .liga-button {
             <div class="cosmic-text">
                 <h2 class="cosmic-title">🛡️ Liga Cobre: Libra</h2>
                 <p>
-                    ⚔️ Cada lección es un campo de batalla.<br>
+                ⚔️ Cada lección es un campo de batalla.<br>
                 🛡️ Cada práctica fortalece tu armadura.<br>
                 🔥 Hoy portas el Cobre… mañana conquistarás Bronce… luego Plata…<br>
                 🏆 Solo los que luchan sin rendirse alcanzan el Oro.<br>
@@ -1757,18 +1724,18 @@ body.dark .liga-button {
         <div id="premiumContainer">
 
             <!-- BOTONES DE VIDEOS PREMIUM -->
-            <h2>🌌 Portal NeuroElite</h2>
+            <h2>🌌 Portal Cosmico</h2>
 
             <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.95;">
-                Ser parte de los <strong>NeuroElites</strong> no es solo acceder a contenido…
+                Ser parte de los <strong>Caballeros</strong> no es solo acceder a contenido…
                 es entrar a un espacio diseñado para mentes que buscan ir más allá.
             </p>
 
             <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.9;">
-                Con una sola clave de acceso, se desbloquean
-                videos exclusivos, melodías estratégicas,
-                clases especiales, traducciones guiadas
-                y textos que expanden tu comprensión.
+                “Con una única llave secreta, abrirás portales hacia actividades 
+                ocultas que elevarán tu poder cósmico. Domina cada reto y en el 
+                próximo módulo forjarás tu armadura de ‘BRONCE’, marcando el inicio 
+                de tu ascenso legendario.”
             </p>
 
             <p style="margin-top:18px; font-size:15px; line-height:1.6; opacity:0.85;">
@@ -1789,12 +1756,6 @@ body.dark .liga-button {
                 Cerrar
             </button>
         </div>
-
-       
-            <!-- BOTÓN BACK TO TOP -->
-            <button id="backToTop">
-                        <i class="fas fa-arrow-up"></i>
-                    </button>
 
         <!-- JS externo -->
         <script src="script.js"></script>
@@ -1880,22 +1841,6 @@ function cerrarPremium() {
         container.style.display = 'none';
     }, 600);
 }
-
-/* --- Segmento del boton de hacia arriba...    --- */
-document.addEventListener('DOMContentLoaded', () => {
-    const backToTop = document.getElementById('backToTop');
-    const ligaContainer = document.getElementById('ligaContainer');
-
-    if (!backToTop || !ligaContainer) return;
-
-    // Mostrar el botón desde el inicio
-    backToTop.style.display = 'flex';
-
-    backToTop.addEventListener('click', () => {
-        // Scroll suave hasta el contenedor naranja
-        ligaContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-});
 
 </script>
 </body>
