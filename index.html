@@ -1490,7 +1490,7 @@ body.dark .liga-button {
                 <h2 class="cosmic-title">🌟 BRILLA 🌟</h2>
                 <p>
                     -----------------------------------------<br>
-                    🌟 “Estas en el portal de los caballeros cosmicos” 🔮
+                    🌟 “Estas por iniciar tu camino al éxito” 🔮
                 </p>
             </div>
         </div>
@@ -1724,24 +1724,22 @@ body.dark .liga-button {
         <div id="premiumContainer">
 
             <!-- BOTONES DE VIDEOS PREMIUM -->
-            <h2>🌌 Portal Cosmico</h2>
+            <h2>🌌 Portal Premium+</h2>
 
             <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.95;">
-                Ser parte de los <strong>"Caballeros Cosmicos"</strong> no es solo acceder a contenido…
-                es entrar a un espacio diseñado para mentes que buscan ir más allá.
-            </p>
+                    🌌 Ser parte del <strong>Círculo Premium+</strong> no es solo acceder a contenido… 
+                    es entrar a un espacio secreto diseñado para mentes curiosas que buscan ir más allá. ✨
+                </p>
 
-            <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.9;">
-                “Con una única llave secreta, abrirás portales hacia actividades 
-                ocultas que elevarán tu poder cósmico. Domina cada reto y en el 
-                próximo módulo forjarás tu armadura de ‘BRONCE’, marcando el inicio 
-                de tu ascenso legendario.”
-            </p>
+                <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.9;">
+                    🔑 Con una llave única, desbloquearás <strong>temas secretos, juegos exclusivos, videos inéditos y más</strong>… 
+                    solo los iniciados descubrirán los portales ocultos que elevarán tu poder cósmico. 🌠
+                </p>
 
-            <p style="margin-top:18px; font-size:15px; line-height:1.6; opacity:0.85;">
-                No todos llegan aquí por casualidad.
-                Algunos simplemente están listos para el siguiente nivel.
-            </p>
+                <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.9;">
+                    🛡️ Domina cada desafío y prepárate para el próximo nivel, donde lo desconocido se convierte en tu ventaja. 
+                    </strong> 👁️‍🗨️
+                </p>            
 
             <button onclick="cerrarPremium()" style="
                 margin-top:25px;
@@ -1841,6 +1839,28 @@ function cerrarPremium() {
         container.style.display = 'none';
     }, 600);
 }
+
+  // Activar o desactivar modo oscuro
+  function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle('dark');
+
+      // Guardar el estado en localStorage
+      if (body.classList.contains('dark')) {
+          localStorage.setItem('darkMode', 'true');
+      } else {
+          localStorage.setItem('darkMode', 'false');
+      }
+  }
+
+  // Al cargar la página, leer la preferencia
+  window.addEventListener('DOMContentLoaded', () => {
+      const darkMode = localStorage.getItem('darkMode');
+      if (darkMode === 'true') {
+          document.body.classList.add('dark');
+      }
+  });
+</script>
 
 </script>
 </body>
