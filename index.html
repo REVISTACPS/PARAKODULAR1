@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -25,35 +25,46 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-       /* BODY Y MODO OSCURO */
+        /* BODY Y MODO OSCURO */
         body {
             background: #f4f4f4;
             color: #222;
             transition: 0.3s;
 
             padding-top: 40px;
-            padding-bottom: 80px; /* para que bottom-nav no tape contenido */
+            padding-bottom: 80px;
+            /* para que bottom-nav no tape contenido */
         }
 
         .dark {
             background: #121212;
             color: white;
         }
-     
+
 
         .top-bar {
-            position: fixed;          /* Se queda fija arriba */
-            top: 0;                   /* Pegada al borde superior */
-            width: 100%;              /* Ocupa todo el ancho */
-            height: 60px;             /* Altura definida */
-            background: #ff5f00;      /* Color naranja */
+            position: fixed;
+            /* Se queda fija arriba */
+            top: 0;
+            /* Pegada al borde superior */
+            width: 100%;
+            /* Ocupa todo el ancho */
+            height: 60px;
+            /* Altura definida */
+            background: #ff5f00;
+            /* Color naranja */
 
-            display: flex;            /* Activa flexbox */
-            justify-content: space-between; /* Separa extremos */
-            align-items: center;      /* Centra verticalmente */
-            padding: 0 20px;          /* Espacio lateral */
-            color: white;             
-            z-index: 1000;            /* Siempre encima */
+            display: flex;
+            /* Activa flexbox */
+            justify-content: space-between;
+            /* Separa extremos */
+            align-items: center;
+            /* Centra verticalmente */
+            padding: 0 20px;
+            /* Espacio lateral */
+            color: white;
+            z-index: 1000;
+            /* Siempre encima */
         }
 
         .spacer {
@@ -111,9 +122,12 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 1px 4px;  /* menos espacio dentro de cada etiqueta */
-           border-radius: 16px; /* esquinas menos grandes si quieres */
-            font-size: 11px;    /* texto más pequeño */
+            padding: 1px 4px;
+            /* menos espacio dentro de cada etiqueta */
+            border-radius: 16px;
+            /* esquinas menos grandes si quieres */
+            font-size: 11px;
+            /* texto más pequeño */
             background: #eaeaea;
             transition: all 0.25s ease;
             position: relative;
@@ -142,124 +156,150 @@
             color: white;
         }
 
-        
-/* ================== ETIQUETAS LINEALES EN CELULAR ================== */
 
-@media (max-width: 480px) {
-  .tags-container {
-    display: flex;             /* Flexbox */
-    flex-wrap: nowrap !important; /* Forzar que no se rompa */
-    overflow-x: auto;          /* Scroll horizontal si no caben */
-    -webkit-overflow-scrolling: touch; /* Suaviza scroll en iOS */
-    gap: 10px;                 /* Separación entre etiquetas */
-    padding: 8px 10px;         /* Ajusta espacio interno */
-  }
+        /* ================== ETIQUETAS LINEALES EN CELULAR ================== */
 
-  .tag {
-    flex: 0 0 auto;            /* Mantener tamaño de etiqueta */
-    white-space: nowrap;       /* Evitar que el texto se rompa */
-    padding: 6px 12px;         /* Más compacto */
-    font-size: 12px;           /* Tamaño más pequeño */
-    border-radius: 16px;       /* Opcional: redondeo más pequeño */
-  }
+        @media (max-width: 480px) {
+            .tags-container {
+                display: flex;
+                /* Flexbox */
+                flex-wrap: nowrap !important;
+                /* Forzar que no se rompa */
+                overflow-x: auto;
+                /* Scroll horizontal si no caben */
+                -webkit-overflow-scrolling: touch;
+                /* Suaviza scroll en iOS */
+                gap: 10px;
+                /* Separación entre etiquetas */
+                padding: 8px 10px;
+                /* Ajusta espacio interno */
+            }
 
-  /* Ocultar scrollbar opcional */
-  .tags-container::-webkit-scrollbar {
-    display: none;
-  }
-}
+            .tag {
+                flex: 0 0 auto;
+                /* Mantener tamaño de etiqueta */
+                white-space: nowrap;
+                /* Evitar que el texto se rompa */
+                padding: 6px 12px;
+                /* Más compacto */
+                font-size: 12px;
+                /* Tamaño más pequeño */
+                border-radius: 16px;
+                /* Opcional: redondeo más pequeño */
+            }
+
+            /* Ocultar scrollbar opcional */
+            .tags-container::-webkit-scrollbar {
+                display: none;
+            }
+        }
 
         /* ================================== */
         /* ===== SECCIÓN TITULO DE LA CARD ======== */
         /* ================================== */
 
- /* Contenedor liga con color cobre */
-.liga-container {
-    position: relative;
-    max-width: 300px;
-    margin: 10px auto 10px auto; /* 20px arriba, auto a los lados, 20px abajo */;
-    padding: 20px 18px;
-    background: #B87333; /* color cobre sólido */
-    border-radius: 18px;
-    text-align: center;
+        /* Contenedor liga con color cobre */
+        .liga-container {
+            position: relative;
+            max-width: 300px;
+            margin: 10px auto 10px auto;
+            /* 20px arriba, auto a los lados, 20px abajo */
+            ;
+            padding: 20px 18px;
+            background: #B87333;
+            /* color cobre sólido */
+            border-radius: 18px;
+            text-align: center;
 
-    /* Glow sutil y sombra */
-    box-shadow: 0 6px 20px rgba(184, 115, 51, 0.6), 0 0 40px rgba(184, 115, 51, 0.3);
+            /* Glow sutil y sombra */
+            box-shadow: 0 6px 20px rgba(184, 115, 51, 0.6), 0 0 40px rgba(184, 115, 51, 0.3);
 
-    /* Flex layout */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+            /* Flex layout */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-    /* Transiciones */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: white; /* todo texto blanco */
-}
+            /* Transiciones */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            /* todo texto blanco */
+        }
 
-/* Títulos y párrafos dentro del contenedor */
-.liga-container h2,
-.liga-container p {
-    color: white; /* aseguramos que sean blancos */
-    text-shadow: 0 0 4px rgba(0,0,0,0.3); /* opcional: sutil sombra para legibilidad */
-}
+        /* Títulos y párrafos dentro del contenedor */
+        .liga-container h2,
+        .liga-container p {
+            color: white;
+            /* aseguramos que sean blancos */
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+            /* opcional: sutil sombra para legibilidad */
+        }
 
-/* Botón dentro de la liga */
-.liga-button {
-    padding: 10px 22px;
-    background: linear-gradient(135deg, #ffb74d, #ff6f00);
-    color: #fff; /* texto blanco */
-    font-weight: 700;
-    border: none;
-    border-radius: 14px;
-    cursor: pointer;
-    box-shadow: 0 6px 18px rgba(255, 111, 0, 0.5);
-    transition: all 0.3s ease;
-}
+        /* Botón dentro de la liga */
+        .liga-button {
+            padding: 10px 22px;
+            background: linear-gradient(135deg, #ffb74d, #ff6f00);
+            color: #fff;
+            /* texto blanco */
+            font-weight: 700;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(255, 111, 0, 0.5);
+            transition: all 0.3s ease;
+        }
 
-.liga-button:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(255, 111, 0, 0.8);
-}
+        .liga-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 111, 0, 0.8);
+        }
 
-/* Notas musicales flotantes */
-.music-notes {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 6px;
-}
+        /* Notas musicales flotantes */
+        .music-notes {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+        }
 
-.music-notes span {
-    font-size: 16px;
-    animation: floatNotes 2s ease-in-out infinite alternate;
-}
+        .music-notes span {
+            font-size: 16px;
+            animation: floatNotes 2s ease-in-out infinite alternate;
+        }
 
-.music-notes span:nth-child(2) {
-    animation-delay: 0.3s;
-}
+        .music-notes span:nth-child(2) {
+            animation-delay: 0.3s;
+        }
 
-.music-notes span:nth-child(3) {
-    animation-delay: 0.6s;
-}
+        .music-notes span:nth-child(3) {
+            animation-delay: 0.6s;
+        }
 
-@keyframes floatNotes {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-6px) rotate(10deg); }
-    100% { transform: translateY(0) rotate(-10deg); }
-}
+        @keyframes floatNotes {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
 
-/* Modo oscuro */
-body.dark .liga-container {
-    background: linear-gradient(135deg, #8f3dff, #c266ff);
-    box-shadow: 0 6px 20px rgba(143, 61, 255, 0.8), 0 0 40px rgba(143, 61, 255, 0.5);
-}
+            50% {
+                transform: translateY(-6px) rotate(10deg);
+            }
 
-body.dark .liga-button {
-    background: linear-gradient(135deg, #e52e71, #6a00ff);
-    box-shadow: 0 6px 18px rgba(155, 0, 255, 0.6);
-}
+            100% {
+                transform: translateY(0) rotate(-10deg);
+            }
+        }
+
+        /* Modo oscuro */
+        body.dark .liga-container {
+            background: linear-gradient(135deg, #8f3dff, #c266ff);
+            box-shadow: 0 6px 20px rgba(143, 61, 255, 0.8), 0 0 40px rgba(143, 61, 255, 0.5);
+        }
+
+        body.dark .liga-button {
+            background: linear-gradient(135deg, #e52e71, #6a00ff);
+            box-shadow: 0 6px 18px rgba(155, 0, 255, 0.6);
+        }
 
 
         /* ================================== */
@@ -274,7 +314,9 @@ body.dark .liga-button {
 
         /* ===== COSMIC CARD ===== */
         .cosmic-card {
-           margin: 10px auto 10px auto; /* 20px arriba, auto a los lados, 20px abajo */;
+            margin: 10px auto 10px auto;
+            /* 20px arriba, auto a los lados, 20px abajo */
+            ;
             max-width: 600px;
             text-align: center;
             padding: 25px;
@@ -301,11 +343,12 @@ body.dark .liga-button {
             /* ANIMACIÓN ELIMINADA */
         }
 
-       
+
         .cosmic-card::before {
             content: "";
             position: absolute;
-            z-index: -1; /* 👈 esto es lo importante */
+            z-index: -1;
+            /* 👈 esto es lo importante */
             width: 300%;
             height: 300%;
             top: -100%;
@@ -385,7 +428,8 @@ body.dark .liga-button {
             padding: 20px;
             border-radius: 16px;
             margin: 0 auto 12px auto;
-            max-width: 650px; /* 👈 evita que ocupe todo el ancho */
+            max-width: 650px;
+            /* 👈 evita que ocupe todo el ancho */
             text-align: center;
 
             border: 1px solid rgba(0, 0, 0, 0.05);
@@ -407,38 +451,46 @@ body.dark .liga-button {
 
         /* ===== DARK MODE ===== */
         .dark .class-box {
-            background: #1c1c1c; /* un poco más suave que #1e1e1e */
-            color: #f5f5f5;      /* blanco menos agresivo */
+            background: #1c1c1c;
+            /* un poco más suave que #1e1e1e */
+            color: #f5f5f5;
+            /* blanco menos agresivo */
             border: 1px solid rgba(255, 255, 255, 0.06);
 
-            box-shadow: 
+            box-shadow:
                 0 6px 18px rgba(0, 0, 0, 0.5),
-                0 0 0 1px rgba(255, 255, 255, 0.02) inset; /* detalle interno sutil */
+                0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+            /* detalle interno sutil */
 
             transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
         }
 
         .dark .class-box:hover {
-            box-shadow: 
+            box-shadow:
                 0 12px 28px rgba(0, 0, 0, 0.6),
-                0 0 20px rgba(0, 123, 255, 0.15); /* glow sutil en hover */
+                0 0 20px rgba(0, 123, 255, 0.15);
+            /* glow sutil en hover */
         }
 
 
         /* ===== VIDEO WRAPPER (más elegante y compacto) ===== */
         .video-wrapper {
             position: relative;
-            width: 88%;                 /* un poco más contenido */
-            max-width: 520px;           /* ligeramente más compacto */
+            width: 88%;
+            /* un poco más contenido */
+            max-width: 520px;
+            /* ligeramente más compacto */
             margin: 18px auto 0 auto;
 
-            aspect-ratio: 16 / 9;       /* 👈 mejor que padding-bottom */
+            aspect-ratio: 16 / 9;
+            /* 👈 mejor que padding-bottom */
             overflow: hidden;
 
             border-radius: 14px;
-            background: #000;           /* fondo elegante mientras carga */
+            background: #000;
+            /* fondo elegante mientras carga */
 
-            box-shadow: 
+            box-shadow:
                 0 10px 25px rgba(0, 0, 0, 0.25),
                 0 0 0 1px rgba(0, 0, 0, 0.05);
 
@@ -447,7 +499,7 @@ body.dark .liga-button {
 
         .video-wrapper:hover {
             transform: scale(1.02);
-            box-shadow: 
+            box-shadow:
                 0 14px 35px rgba(0, 0, 0, 0.35);
         }
 
@@ -458,7 +510,7 @@ body.dark .liga-button {
             display: block;
         }
 
-       /* ===== NOTICE ===== */
+        /* ===== NOTICE ===== */
         .notice {
             background: linear-gradient(135deg, #ffd84d, #ffb300);
             padding: 16px 18px;
@@ -609,11 +661,11 @@ body.dark .liga-button {
             padding: 20px 0;
 
             /* Fondo sutil para separar visualmente la sección */
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.03));
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.03));
         }
 
         .dark .melodias-section {
-            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.03));
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.03));
         }
 
 
@@ -649,11 +701,13 @@ body.dark .liga-button {
             padding-bottom: 15px;
 
             /* Scroll más limpio */
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
+            /* Firefox */
         }
 
         .carousel-container::-webkit-scrollbar {
-            display: none; /* Chrome */
+            display: none;
+            /* Chrome */
         }
 
 
@@ -678,18 +732,18 @@ body.dark .liga-button {
             padding: 18px;
 
             /* Profundidad mejorada */
-            box-shadow: 
+            box-shadow:
                 0 10px 25px rgba(0, 0, 0, 0.08),
                 0 5px 10px rgba(0, 0, 0, 0.04);
 
-            transition: 
+            transition:
                 transform 0.3s ease,
                 box-shadow 0.3s ease;
         }
 
         .melodia-card:hover {
             transform: translateY(-8px);
-            box-shadow: 
+            box-shadow:
                 0 20px 40px rgba(0, 0, 0, 0.12),
                 0 10px 20px rgba(0, 0, 0, 0.06);
         }
@@ -699,7 +753,7 @@ body.dark .liga-button {
 
         .dark .melodia-card {
             background: #1e1e1e;
-            box-shadow: 
+            box-shadow:
                 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
@@ -707,7 +761,8 @@ body.dark .liga-button {
         /* ===== VIDEO WRAPPER (VERSIÓN MODERNA) ===== */
 
         .video-wrapper {
-            aspect-ratio: 16 / 9; /* 👈 Mejor que padding-bottom */
+            aspect-ratio: 16 / 9;
+            /* 👈 Mejor que padding-bottom */
             width: 100%;
             overflow: hidden;
             border-radius: 12px;
@@ -739,7 +794,7 @@ body.dark .liga-button {
 
             box-shadow: 0 8px 20px rgba(0, 255, 20, 0.3);
 
-            transition: 
+            transition:
                 transform 0.25s ease,
                 box-shadow 0.25s ease,
                 background 0.25s ease;
@@ -757,7 +812,7 @@ body.dark .liga-button {
             transform: scale(0.96);
         }
 
-       /* ================================== */
+        /* ================================== */
         /* ===== NEUROLEARNING CARD 9.5 ===== */
         /* ================================== */
 
@@ -783,7 +838,7 @@ body.dark .liga-button {
                 0 20px 60px rgba(229, 46, 113, 0.35),
                 0 15px 35px rgba(0, 0, 0, 0.25);
 
-            transition: 
+            transition:
                 transform 0.35s ease,
                 box-shadow 0.35s ease;
         }
@@ -797,13 +852,11 @@ body.dark .liga-button {
             border-radius: 24px;
             padding: 2px;
 
-            background: linear-gradient(
-                90deg,
-                #ff8a00,
-                #e52e71,
-                #6a00ff,
-                #ff8a00
-            );
+            background: linear-gradient(90deg,
+                    #ff8a00,
+                    #e52e71,
+                    #6a00ff,
+                    #ff8a00);
 
             background-size: 300% 300%;
             animation: borderFlow 6s linear infinite;
@@ -824,15 +877,20 @@ body.dark .liga-button {
             left: -40%;
             width: 180%;
             height: 180%;
-            background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 65%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 65%);
             pointer-events: none;
         }
 
 
         /* Animación del borde */
         @keyframes borderFlow {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 300% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 300% 50%;
+            }
         }
 
 
@@ -1050,7 +1108,8 @@ body.dark .liga-button {
         .sidebar {
             position: fixed;
             top: 50%;
-            left: -220px; /* oculto inicialmente */
+            left: -220px;
+            /* oculto inicialmente */
             transform: translateY(-50%);
             width: 220px;
 
@@ -1059,12 +1118,10 @@ body.dark .liga-button {
             border-radius: 0 25px 25px 0;
 
             /* Fondo oscuro con profundidad */
-            background: linear-gradient(
-                180deg,
-                #0f0f1a 0%,
-                #14142b 60%,
-                #1b0033 100%
-            );
+            background: linear-gradient(180deg,
+                    #0f0f1a 0%,
+                    #14142b 60%,
+                    #1b0033 100%);
 
             /* Glow elegante y sombra profunda */
             box-shadow:
@@ -1075,7 +1132,7 @@ body.dark .liga-button {
             backdrop-filter: blur(12px);
 
             transition:
-                left 0.5s cubic-bezier(.77,0,.18,1),
+                left 0.5s cubic-bezier(.77, 0, .18, 1),
                 box-shadow 0.4s ease;
 
             z-index: 1000;
@@ -1090,14 +1147,12 @@ body.dark .liga-button {
             width: 3px;
             height: 100%;
 
-            background: linear-gradient(
-                to bottom,
-                rgba(155,0,255,0),
-                rgba(155,0,255,0.8),
-                rgba(155,0,255,0)
-            );
+            background: linear-gradient(to bottom,
+                    rgba(155, 0, 255, 0),
+                    rgba(155, 0, 255, 0.8),
+                    rgba(155, 0, 255, 0));
 
-            box-shadow: 0 0 20px rgba(155,0,255,0.9);
+            box-shadow: 0 0 20px rgba(155, 0, 255, 0.9);
         }
 
         /* Cuando se activa */
@@ -1202,17 +1257,16 @@ body.dark .liga-button {
 
         /* Overlay oscuro con desenfoque */
         #premiumOverlay {
-            display: none;       /* o */
+            display: none;
+            /* o */
             pointer-events: none;
             position: fixed;
             inset: 0;
 
             background:
-                radial-gradient(
-                    circle at center,
+                radial-gradient(circle at center,
                     rgba(106, 0, 255, 0.3),
-                    rgba(0, 0, 0, 0.9)
-                );
+                    rgba(0, 0, 0, 0.9));
 
             backdrop-filter: blur(8px);
 
@@ -1238,12 +1292,10 @@ body.dark .liga-button {
             border-radius: 25px;
 
             background:
-                radial-gradient(
-                    circle at top,
+                radial-gradient(circle at top,
                     #6a00ff,
                     #240046 70%,
-                    #100020
-                );
+                    #100020);
 
             color: white;
             text-align: center;
@@ -1256,7 +1308,7 @@ body.dark .liga-button {
             opacity: 0;
 
             transition:
-                transform 0.6s cubic-bezier(.77,0,.18,1),
+                transform 0.6s cubic-bezier(.77, 0, .18, 1),
                 opacity 0.5s ease;
 
             z-index: 2000;
@@ -1270,8 +1322,13 @@ body.dark .liga-button {
 
         /* Animación base */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to   { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
 
@@ -1289,12 +1346,10 @@ body.dark .liga-button {
 
             border-radius: 40px;
 
-            background: linear-gradient(
-                90deg,
-                #fff4c2,
-                #ffd700,
-                #ffb700
-            );
+            background: linear-gradient(90deg,
+                    #fff4c2,
+                    #ffd700,
+                    #ffb700);
 
             box-shadow:
                 0 0 25px rgba(255, 215, 0, 0.8),
@@ -1325,6 +1380,7 @@ body.dark .liga-button {
             from {
                 box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
             }
+
             to {
                 box-shadow: 0 0 45px rgba(255, 215, 0, 1);
             }
@@ -1369,8 +1425,9 @@ body.dark .liga-button {
         Evita que algún elemento desborde el viewport y
         genere espacio en blanco hacia la derecha.
         No afecta el diseño vertical. */
-        
-            html, body {
+
+        html,
+        body {
             overflow-x: hidden;
             max-width: 100%;
         }
@@ -1420,9 +1477,9 @@ body.dark .liga-button {
 
         body.dark .tag {
             background: linear-gradient(135deg, #8f3dff, #c266ff);
-            
+
             color: #ffffff;
-            
+
             box-shadow:
                 0 0 10px rgba(143, 61, 255, 0.8),
                 0 0 25px rgba(143, 61, 255, 0.6),
@@ -1431,7 +1488,7 @@ body.dark .liga-button {
 
         body.dark .tag:hover {
             transform: translateY(-4px);
-            
+
             box-shadow:
                 0 0 15px rgba(143, 61, 255, 1),
                 0 0 35px rgba(143, 61, 255, 0.8),
@@ -1441,9 +1498,8 @@ body.dark .liga-button {
         /* Letras más brillantes */
         body.dark .tag,
         body.dark .tag i {
-            text-shadow: 0 0 8px rgba(255,255,255,0.8);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
         }
-
     </style>
 </head>
 
@@ -1478,11 +1534,11 @@ body.dark .liga-button {
     <div class="main-content">
 
 
-<!--Boton de hacia arriba -->
-    <div class="liga-container" id="ligaContainer" style="background-color: orange; height: 50px;">
-    <h2>.</h2>
-</div>
-<!--Termino del boton de hacia arriba -->
+        <!--Boton de hacia arriba -->
+        <div class="liga-container" id="ligaContainer" style="background-color: orange; height: 50px;">
+            <h2>.</h2>
+        </div>
+        <!--Termino del boton de hacia arriba -->
 
 
         <div class="cosmic-card">
@@ -1490,7 +1546,7 @@ body.dark .liga-button {
                 <h2 class="cosmic-title">🌟 BRILLA 🌟</h2>
                 <p>
                     -----------------------------------------<br>
-                    🌟 “Estas por iniciar tu camino al éxito” 🔮
+                    🌟 “Estas en el portal de los caballeros cosmicos” 🔮
                 </p>
             </div>
         </div>
@@ -1565,38 +1621,51 @@ body.dark .liga-button {
 
                     <!-- ITEM 1 -->
                     <div class="melodia-card">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/LDkRy6ISqrA" allowfullscreen></iframe>
-                        </div>
-                        <a href="https://revistacps.github.io/Melodia-Titanium/" class="melodia-button">
-                            Ver Melodía
-                        </a>
-                    </div>
+
+    <div class="video-wrapper">
+        <iframe 
+        src="https://www.youtube.com/embed/T4QFGcVBxuQ"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <a href="https://www.youtube.com/watch?v=T4QFGcVBxuQ" class="melodia-button">
+        Escuchar Ahora
+    </a>
+
+</div>
 
                     <!-- ITEM 2 -->
                     <div class="melodia-card">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe>
-                        </div>
-                        <a href="https://revistacps.github.io/Melodia-Titanium/" class="melodia-button">
-                            Escuchar Ahora
-                        </a>
-                    </div>
+
+    <div class="video-wrapper">
+        <iframe 
+        src="https://www.youtube.com/embed/dUsOsIWBBYY"
+        allowfullscreen>
+        </iframe>
+    </div>
+
+    <a href="https://www.youtube.com/watch?v=dUsOsIWBBYY" class="melodia-button">
+        Escuchar Ahora
+    </a>
+
+</div>
 
                     <!-- ITEM 3 -->
                     <div class="melodia-card">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/OPf0YbXqDm0" allowfullscreen></iframe>
-                        </div>
-                        <a href="https://revistacps.github.io/Melodia-Titanium/" class="melodia-button">
-                            Ir a la Letra
-                        </a>
-                    </div>
 
-                </div>
-            </div>
+    <div class="video-wrapper">
+        <iframe 
+        src="https://www.youtube.com/embed/Z_ryMxKeVRc"
+        allowfullscreen>
+        </iframe>
+    </div>
 
-        </div>
+    <a href="https://www.youtube.com/watch?v=Z_ryMxKeVRc" class="melodia-button">
+        Escuchar Ahora
+    </a>
+
+</div>
 
         <!-- CLASE 5 / VIDEO -->
         <div class="class-box">
@@ -1623,22 +1692,22 @@ body.dark .liga-button {
                 </iframe>
             </div>
             <h3 style="text-align:center; margin-top:10px;">Clase 6</h3>
-                            <p>Si quieres mas videos como este, dirigete al area de "VIDEOS"  en la pestaña luminosa... </p>
-                </div>
+            <p>Si quieres mas videos como este, dirigete al area de "VIDEOS" en la pestaña luminosa... </p>
+        </div>
 
         <!-- CONTENEDOR LIGA-COBRE -->
-<div class="liga-container">
-    <div class="music-notes">
-        <span>🎵</span>
-        <span>🎶</span>
-        <span>🎵</span>
-    </div>
-    <h2>LIGA-COBRE</h2>
-    <p>“Despierta al Caballero que llevas dentro: ¡Tu Bronce te espera!”</p>
-    <button class="liga-button">✨"Sube tu poder"✨</button>
-</div>
+        <div class="liga-container">
+            <div class="music-notes">
+                <span>🎵</span>
+                <span>🎶</span>
+                <span>🎵</span>
+            </div>
+            <h2>LIGA-COBRE</h2>
+            <p>“Despierta al Caballero que llevas dentro: ¡Tu Bronce te espera!”</p>
+            <button class="liga-button">✨"Sube tu poder"✨</button>
+        </div>
 
-        
+
         <div class="cosmic-card">
             <img src="https://i.ibb.co/tMqrkKH5/Chat-GPT-Image-27-feb-2026-11-27-22-a-m.png"
          alt="Guardián del Nivel"
@@ -1647,7 +1716,7 @@ body.dark .liga-button {
             <div class="cosmic-text">
                 <h2 class="cosmic-title">🛡️ Liga Cobre: Libra</h2>
                 <p>
-                ⚔️ Cada lección es un campo de batalla.<br>
+                    ⚔️ Cada lección es un campo de batalla.<br>
                 🛡️ Cada práctica fortalece tu armadura.<br>
                 🔥 Hoy portas el Cobre… mañana conquistarás Bronce… luego Plata…<br>
                 🏆 Solo los que luchan sin rendirse alcanzan el Oro.<br>
@@ -1703,16 +1772,16 @@ body.dark .liga-button {
                 <i class="fas fa-chalkboard-teacher"></i><span>Temas</span>
             </a>
 
-            <a href="https://revistacps.github.io/MOTORDETRADUCCIONESESPACIALES/" class="side-item">
+            <a href="https://revistacps.github.io/LABORATORIODETRADUCION2/" class="side-item">
                 <i class="fas fa-book"></i><span>Traducciones</span>
-            </a>
-
-            <a href="https://revistacps.github.io/Edicion-Especial-Ed.-001/" class="side-item">
-                <i class="fas fa-book"></i><span>Revista</span>
             </a>
 
             <a href="https://revistacps.github.io/-Avisos-Importantes/" class="side-item">
                 <i class="fas fa-bell"></i><span>Avisos</span>
+            </a>
+
+            <a href="https://revistacps.github.io/Edicion-Especial-Ed.-001/" class="side-item">
+                <i class="fas fa-book"></i><span>Revista</span>
             </a>
 
             <a href="javascript:void(0)" class="side-item" onclick="activarPremium()">
@@ -1728,22 +1797,24 @@ body.dark .liga-button {
         <div id="premiumContainer">
 
             <!-- BOTONES DE VIDEOS PREMIUM -->
-            <h2>🌌 Portal Premium+</h2>
+            <h2>🌌 Portal Cosmico</h2>
 
             <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.95;">
-                    🌌 Ser parte del <strong>Círculo Premium+</strong> no es solo acceder a contenido… 
-                    es entrar a un espacio secreto diseñado para mentes curiosas que buscan ir más allá. ✨
-                </p>
+                🌌 Ser parte del <strong>Círculo Premium+</strong> no es solo acceder a contenido…
+                es entrar a un espacio secreto diseñado para mentes curiosas que buscan ir más allá. ✨
+            </p>
 
-                <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.9;">
-                    🔑 Con una llave única, desbloquearás <strong>temas secretos, juegos exclusivos, videos inéditos y más</strong>… 
-                    solo los iniciados descubrirán los portales ocultos que elevarán tu poder cósmico. 🌠
-                </p>
+            <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.9;">
+                🔑 Con una llave única, desbloquearás
+                <strong>temas secretos, juegos exclusivos, videos inéditos y más</strong>…
+                solo los iniciados descubrirán los portales ocultos que elevarán tu poder cósmico. 🌠
+            </p>
 
-                <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.9;">
-                    🛡️ Domina cada desafío y prepárate para el próximo nivel, donde lo desconocido se convierte en tu ventaja. 
-                    </strong> 👁️‍🗨️
-                </p>            
+            <p style="margin-top:15px; font-size:16px; line-height:1.6; opacity:0.9;">
+                🛡️ Domina cada desafío y prepárate para el próximo nivel, donde lo desconocido se convierte en tu
+                ventaja.
+                </strong> 👁️‍🗨️
+            </p>
 
             <button onclick="cerrarPremium()" style="
                 margin-top:25px;
@@ -1764,7 +1835,7 @@ body.dark .liga-button {
 
         <!-- JS UNIFICADO -->
         <script>
-/* --- DARK MODE --- */
+            /* --- DARK MODE --- */
 function toggleDarkMode() {
     document.body.classList.toggle("dark");
 }
@@ -1864,9 +1935,9 @@ function cerrarPremium() {
           document.body.classList.add('dark');
       }
   });
-</script>
+        </script>
 
-</script>
+        </script>
 </body>
 
 </html>
